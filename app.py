@@ -87,14 +87,6 @@ def laad_of_init_state():
         rf = RandomForestRegressor(n_estimators=200, random_state=42)
         dt = DecisionTreeRegressor(max_depth=4, random_state=42)
 
-        # laad indien aanwezig
-        if Path('marble_run_model_lm.pkl').exists():
-            lm = joblib.load('marble_run_model_lm.pkl')
-        if Path('marble_run_model_rf.pkl').exists():
-            rf = joblib.load('marble_run_model_rf.pkl')
-        if Path('marble_run_model_dt.pkl').exists():
-            dt = joblib.load('marble_run_model_dt.pkl')
-
         # initial fit als er wel data is
         if len(st.session_state.data) >= 2 and not Path('marble_run_model_lm.pkl').exists():
             X = st.session_state.data[KENMERKEN]; y = st.session_state.data['tijd']
