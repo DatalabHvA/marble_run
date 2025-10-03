@@ -167,6 +167,5 @@ if hasattr(st.session_state.model_dt, "tree_") and st.session_state.model_dt.tre
     # Check: leaf-voorspelling moet gelijk zijn aan y_dt
     leaf_id = st.session_state.model_dt.apply(x_row)[0]
     leaf_pred = st.session_state.model_dt.tree_.value[leaf_id][0][0]
-    st.caption(f"Controle: leaf {leaf_id} voorspelling = {leaf_pred:.3f} s.")
 else:
     st.info("De beslisboom is nog niet getraind.")
